@@ -11,4 +11,20 @@ def count_letters(text):
         else:
             letters[letter] = 1
     return letters
+
+def sort_on(items):
+    return items["Anzahl"]
+
+def sort_list(letter_dict):
+    letter_list = []
+    for letter in letter_dict:
+        count = letter_dict[letter]
+        if letter.isalpha():
+            letter_list.append({"Buchstabe": letter, "Anzahl": count})
+    
+    letter_list.sort(reverse=True, key=sort_on)
+    return letter_list
+    
         
+    
+    

@@ -5,13 +5,24 @@ def get_book_text(path_to_file):
 
 from stats import count_words
 from stats import count_letters
-
+from stats import sort_list
     
 
 
 def main():
     path_to_file = "./books/frankenstein.txt"
-    print(f"{count_words(get_book_text(path_to_file))} words found in the document")
-    print(f"{count_letters(get_book_text(path_to_file))}")
+    
+    print("============ BOOKBOT ============")
+    print(f"Analyzing book found at {path_to_file[2::]}...")
+    print(f"----------- Word Count ----------")
+    print(f"Found {count_words(get_book_text(path_to_file))} total words")
+    print(f"--------- Character Count -------")
+    #print(f"{sort_list(count_letters(get_book_text(path_to_file)))}")
+
+    sorted_letters = sort_list(count_letters(get_book_text(path_to_file)))
+    for letter in sorted_letters:
+        print(f"{letter["Buchstabe"]}: {letter["Anzahl"]}")
+    
+    print(f"============= END ===============")
 
 main()
